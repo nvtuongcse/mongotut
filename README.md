@@ -1,4 +1,6 @@
-**Mongo-Simpltut**
+#**MongoDB Example**
+
     Using *Express*, *Mongoose*
-**How to run**
+##**How to run**
+
     `npm install && npm start`
