@@ -1,6 +1,7 @@
-# **MongoDB Example**
+# **MongoDB Example** 
 
-    Using *Express*, *Mongoose*
+   Using  *Express*, *Mongoose*
+
 ## **How to run**
 
-    `npm install && npm start`
+   `npm install && npm start`
