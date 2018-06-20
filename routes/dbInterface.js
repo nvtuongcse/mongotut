@@ -38,14 +38,13 @@ router.post('/', function (req, res, next) {
 router.put('/:id', function (req, res, next) {
   const id = req.params.id
   const { title, author, body, meta } = req.body;
-  Article.findByIdAndUpdate(id, {
-    $set: {
-      title: title,
-      author: author,
-      body: body,
-      meta: meta
-    }
-  }, function (err, article) {
+  let update = { $set: {} };
+  if (title) update.$set.title = title;
+  if (author) update.$set.author = author;
+  if (body) update.$set.body = body;
+  if (meta) update.$set.meta = meta;
+  Article.findByIdAndUpdate(id, update,
+    function (err, article) {
     if (err) return res.send({
       code: -1,
       message: err.message
@@ -55,10 +54,10 @@ router.put('/:id', function (req, res, next) {
         code: -1,
         message: err.message
       })
-    })
-    res.send({
-      code: 0,
-      message: 'success'
+      res.send({
+        code: 0,
+        message: 'success'
+      })
     })
   })
 })
